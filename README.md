@@ -1,4 +1,4 @@
-# «Базы данных» - Pirogov A.A.
+# «DDL/DML» - Pirogov A.A.
 
 ##     Задание 1 
 
