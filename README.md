@@ -1,4 +1,4 @@
-# «DDL/DML» - Pirogov A.A.
+# «SQL-1» - Pirogov A.A.
 
 ##     Задание 1 
 

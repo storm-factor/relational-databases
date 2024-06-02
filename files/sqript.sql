@@ -1,31 +1,19 @@
 
-# Задание 1
+# exercise 1
 
-CREATE USER 'sys_temp'@'%' IDENTIFIED BY 'qazWSX12345678';
-SELECT User FROM mysql.user ;
-GRANT ALL PRIVILEGES ON sakila.* TO 'sys_temp'@'%' WITH GRANT OPTION;
-SHOW GRANTS FOR 'sys_temp'@'%';
-ALTER USER 'sys_temp'@'%' IDENTIFIED WITH mysql_native_password BY 'qazWSX12345678';
-FLUSH PRIVILEGES;
+USE sakila
 
-SELECT USER();
-
-SELECT User FROM mysql.user ;
+SELECT DISTINCT district
+FROM address 
+WHERE district LIKE 'K%' AND district LIKE '%a' AND district NOT LIKE '% %';
+####
 
 
-# Задание 2
+# ex 2 
 
-USE sakila;
+SELECT * FROM payment
+WHERE CAST(payment_date AS DATE) BETWEEN '2005.06.15' AND '2005.06.18' AND amount > 10.00;
+####
 
-SELECT TABLE_NAME, COLUMN_NAME
-FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE
-WHERE TABLE_SCHEMA = 'sakila'
-AND CONSTRAINT_NAME = 'PRIMARY';
-
-
-# Задание 3
-
-REVOKE INSERT, UPDATE, DELETE ON sakila.* FROM 'sys_temp'@'%';
-FLUSH PRIVILEGES;
-SHOW GRANTS FOR 'sys_temp'@'%';
+# ex 3 
 
