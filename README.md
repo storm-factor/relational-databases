@@ -1,20 +1,12 @@
 # «SQL-1» - Pirogov A.A.
 
-##     Задание 1 
 
 [Портянка с кодом](./files/sqript.sql)
 
-####	Создаю Пользователя 
+
+##     Задание 1 
+
 ![ex1-1](./screenshots/ex1-1.png)
-
-####	Дал права пользователю 'sys_temp' 
-![ex1-2](./screenshots/ex1-2.png)
-
-####	Выполнил подключение к БД с помощью пользователя 'sys_temp'
-![ex1-3](./screenshots/ex1-3.png)
-
-####	Сформировал ER-диаграмму получившейся базы данных
-![ex1-4](./screenshots/ex1-4.png)
 
 
 ##     Задание 2
@@ -24,5 +16,20 @@
 
 ##     Задание 3
 
-![ex3-1](./screenshots/ex3-1.png)
-![ex3-2](./screenshots/ex3-2.png)
+![ex3](./screenshots/ex3.png)
+
+
+##     Задание 4
+
+![ex4](./screenshots/ex4.png)
+
+
+##     Задание 5
+
+![ex5](./screenshots/ex5.png)
+
+
+##     Задание 6
+
+![ex6](./screenshots/ex6.png)
+
