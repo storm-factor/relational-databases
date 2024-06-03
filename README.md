@@ -1,17 +1,17 @@
 # «SQL-1» - Pirogov A.A.
 
 
-[Портянка с кодом](./files/sqript.sql)
+[Портянка с кодом sql](./files/sqript.sql)
 
 
 ##     Задание 1 
 
-![ex1-1](./screenshots/ex1-1.png)
+![ex1](./screenshots/ex1.png)
 
 
 ##     Задание 2
 
-![ex2-1](./screenshots/ex2.png)
+![ex2](./screenshots/ex2.png)
 
 
 ##     Задание 3
