@@ -11,7 +11,7 @@
 
 ##     Задание 2
 
-![ex2-2](./screenshots/ex22-2.png)
+![ex2-2](./screenshots/ex2-2.png)
 
 
 ##     Задание 3
