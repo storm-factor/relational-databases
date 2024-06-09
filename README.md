@@ -1,4 +1,4 @@
-# «SQL-1» - Pirogov A.A.
+# «SQL-2» - Pirogov A.A.
 
 
 [Портянка с кодом sql](./files/sqript.sql)
@@ -21,15 +21,5 @@
 
 ##     Задание 4
 
-![ex4](./screenshots/ex4.png)
-
-
-##     Задание 5
-
-![ex5](./screenshots/ex5.png)
-
-
-##     Задание 6
-
-![ex6](./screenshots/ex6.png)
-
+![ex4-1](./screenshots/ex4-1.png)
+![ex4-2](./screenshots/ex4-2.png)

@@ -1,48 +1,47 @@
 
-# ex-1
-USE sakila
 
-SELECT DISTINCT district
-FROM address
-WHERE district LIKE 'K%' AND district LIKE '%a' AND district NOT LIKE '% %';
+## ex-1
+SELECT COUNT(c.store_id) count_cust, CONCAT(staf.first_name, ' ', staf.last_name) surname, ci.city store_in_city, c.store_id store_id
+FROM store sto
+JOIN customer c ON sto.store_id = c.store_id 
+JOIN staff staf ON sto.manager_staff_id = staf.staff_id
+JOIN address ad ON sto.address_id = ad.address_id 
+JOIN city ci ON ad.address_id =  ci.city_id 
+GROUP BY c.store_id 
+HAVING COUNT(c.store_id) > 300;
 ####
 
-# ex-2
-SELECT * FROM payment
-WHERE CAST(payment_date AS DATE) BETWEEN '2005-06-15' AND '2005-06-18' AND amount > 10.00;
+## ex-2
+SELECT COUNT(fi.length) pp
+FROM film fi
+WHERE fi.length > (
+	SELECT AVG(length) 
+	FROM film
+	);
 ####
 
-# ex-3
-SELECT * FROM rental
-ORDER BY rental_date
-DESC
-LIMIT 5
-OFFSET 1;
-#####
-
-# ex-4
-SELECT DISTINCT REPLACE(LOWER(first_name), 'll', 'PP'), LOWER(last_name), email
-FROM customer
-WHERE first_name LIKE '%KELLY%' OR first_name LIKE '%Willie%';
+## ex-3
+SELECT YEAR(p.payment_date) AS year,
+       MONTH(p.payment_date) AS month,
+       SUM(p.amount) AS sum_payments,
+       COUNT(r.rental_id) AS rentals_count
+FROM payment p
+LEFT JOIN rental r ON DATE_FORMAT(p.payment_date, '%Y-%m') = DATE_FORMAT(r.rental_date, '%Y-%m')
+GROUP BY year, month
+ORDER BY sum_payments DESC
+LIMIT 1;
 ####
 
-# ex-5
-SELECT
-    SUBSTRING_INDEX(email, '@',  1) AS email_before,
-    SUBSTRING_INDEX(email, '.', -2) AS email_after,
-    email AS email_full
-FROM customer;
+## ex-4 
+ALTER TABLE staff ADD COLUMN premium ENUM('Да', 'Нет') DEFAULT 'Нет';
+
+UPDATE staff st
+JOIN (
+    SELECT staff_id, COUNT(*) AS sales_count
+    FROM payment
+    GROUP BY staff_id
+) p ON st.staff_id = p.staff_id
+SET st.premium = CASE 
+    WHEN p.sales_count > 8000 THEN 'Да'
+    ELSE 'Нет' END;
 ####
-
-# ex-6
-SELECT
-    CONCAT(
-        UPPER(SUBSTRING(email, 1, LOCATE('@', email) - 1)),
-        LOWER(SUBSTRING(email, LOCATE('@', email) - 1 + 1))
-    ) AS email_before,
-    CONCAT(
-        UPPER(SUBSTRING(email, LOCATE('@', email) + 1, 1)),
-        LOWER(SUBSTRING(email, LOCATE('@', email) + 2))
-    ) AS email_after
-FROM customer;
-
