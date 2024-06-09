@@ -16,7 +16,7 @@
 
 ##     Задание 3
 
-![ex3-3](./screenshots/ex3-3.png)
+![ex3](./screenshots/ex3.png)
 
 
 ##     Задание 4

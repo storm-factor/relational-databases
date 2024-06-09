@@ -21,13 +21,12 @@ WHERE fi.length > (
 ####
 
 ## ex-3
-SELECT YEAR(p.payment_date) AS year,
-       MONTH(p.payment_date) AS month,
+SELECT 
+       DATE_FORMAT(p.payment_date, '%Y-%m') AS year_monthh,
        SUM(p.amount) AS sum_payments,
-       COUNT(r.rental_id) AS rentals_count
+       COUNT(p.rental_id) AS rentals_count
 FROM payment p
-LEFT JOIN rental r ON DATE_FORMAT(p.payment_date, '%Y-%m') = DATE_FORMAT(r.rental_date, '%Y-%m')
-GROUP BY year, month
+GROUP BY DATE_FORMAT(p.payment_date, '%Y-%m')
 ORDER BY sum_payments DESC
 LIMIT 1;
 ####
