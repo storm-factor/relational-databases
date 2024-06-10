@@ -18,7 +18,7 @@ JOIN rental r ON p.payment_date = r.rental_date
 JOIN customer c ON r.customer_id = c.customer_id 
 JOIN inventory i ON i.inventory_id = r.inventory_id
 JOIN film f ON i.film_id = f.film_id
-WHERE p.payment_date = '2005-07-30';
+WHERE p.payment_date >= '2005-07-30' AND p.payment_date < DATE_ADD('2005-07-30', INTERVAL 1 DAY);
 
 -> Table scan on <temporary>  (cost=2.5..2.5 rows=0) (actual time=0.0225..0.0225 rows=0 loops=1)
     -> Temporary table with deduplication  (cost=0..0 rows=0) (actual time=0.0216..0.0216 rows=0 loops=1)
@@ -34,3 +34,7 @@ WHERE p.payment_date = '2005-07-30';
                                 -> Single-row index lookup on c using PRIMARY (customer_id=r.customer_id)  (cost=0.35 rows=1) (never executed)
                             -> Single-row index lookup on i using PRIMARY (inventory_id=r.inventory_id)  (cost=0.35 rows=1) (never executed)
                         -> Single-row index lookup on f using PRIMARY (film_id=i.film_id)  (cost=0.35 rows=1) (never executed)
+
+SELECT *
+FROM INFORMATION_SCHEMA.STATISTICS
+WHERE TABLE_NAME='payment';
