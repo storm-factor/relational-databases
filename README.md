@@ -15,7 +15,7 @@
 
 ![ex3](./screenshots/ex3.png)
 
-![ex4](./screenshots/ex4.png)
+![ex4](./screenshots/ex5.png)
 
 ##     Задание 3
 
